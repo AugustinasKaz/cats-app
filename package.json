@@ -1,31 +1,19 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.3.0",
-  "description": "A sample Node.js app using Express 4",
-  "engines": {
-    "node": "12.x"
-  },
+  "name": "cats-app",
+  "version": "1.0.0",
+  "description": "React with node",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "node test.js"
+    "heroku-postbuild": "cd my-app && npm install && npm run build"
   },
+  "author": "Augustinas",
+  "license": "MIT",
   "dependencies": {
-    "ejs": "^2.5.6",
-    "express": "^4.15.2"
-  },
-  "devDependencies": {
-    "request": "^2.81.0",
-    "tape": "^4.7.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
-  },
-  "keywords": [
-    "node",
-    "heroku",
-    "express"
-  ],
-  "license": "MIT"
+    "concurrently": "^5.0.2",
+    "cors": "^2.8.5",
+    "create-react-app": "^3.3.0",
+    "express": "^4.17.1",
+    "pg": "^7.15.1"
+  }
 }
