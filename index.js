@@ -1,63 +1,34 @@
 const express = require('express');
-const request = require('request');
-const app = express();
 const path = require('path');
-var cors = require('cors');
-const port = process.env.PORT || 5000;
-const { Client } = require('pg');
+const generatePassword = require('password-generator');
 
-app.use(express.static(path.join(__dirname, 'my-app/build')));
+const app = express();
 
-const DATABASE_URL = 'postgres://xawgefxcwnxfqh:c5abc23f115270d5f68d9664042a0b9c0d7e7646f4f44018b3a0e3f4e5aaebe2@ec2-176-34-184-174.eu-west-1.compute.amazonaws.com:5432/d5u7va0o6g0486';
-var options = {
-    method: 'GET',
-    url: 'https://api.thecatapi.com/v1/images/search?limit=21',
-    headers: { 'x-api-key': '6b20cc7c-275a-4071-b1dc-e12315b7da18' }
-};
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.use(cors());
+// Put all API endpoints under '/api'
+app.get('/api/passwords', (req, res) => {
+  const count = 5;
 
-app.get('/api/users', (req, res) => {
-    const client = new Client({
-        connectionString: DATABASE_URL,
-        ssl: true,
-    });
-    client.connect();
-    client.query('SELECT*FROM users;', (err, response) => {
-        if (err)
-            throw err;
-        else {
-            const users = [];
-            for (let row of response.rows) {
-                users.push(row);
-            }
-            client.end();
-            res.json(users);
-        }
-    });
-})
+  // Generate some passwords
+  const passwords = Array.from(Array(count).keys()).map(i =>
+    generatePassword(12, false)
+  )
 
-app.get('/api/cats', (req, res) => {
-    request(options, function (error, response, body) {
-        if (error)
-            throw new Error(error);
-        else {
-            const cat_pics = [];
-            var jsondata = JSON.parse(body);
-            for (var i = 0; i < jsondata.length; i++) {
-                var counter = jsondata[i];
-                var pic = { id: counter.id, url: counter.url };
-                cat_pics.push(pic);
-            }
-            res.json(cat_pics);
-        }
+  // Return them as json
+  res.json(passwords);
 
-    });
-
-})
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/my-app/build/index.html'));
+  console.log(`Sent ${count} passwords`);
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
+
+const port = process.env.PORT || 5000;
+app.listen(port);
+
+console.log(`Password generator listening on ${port}`);
