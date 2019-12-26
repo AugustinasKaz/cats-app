@@ -35,21 +35,7 @@ app.get('/api/users', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-    request(options, function (error, response, body) {
-        if (error)
-            throw new Error(error);
-        else {
-            const cat_pics = [];
-            var jsondata = JSON.parse(body);
-            for (var i = 0; i < jsondata.length; i++) {
-                var counter = jsondata[i];
-                var pic = { id: counter.id, url: counter.url };
-                cat_pics.push(pic);
-            }
-            res.json(cat_pics);
-        }
-
-    });
+    res.send('Hello World!');
 
 })
 
