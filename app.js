@@ -34,7 +34,7 @@ app.get('/api/users', (req, res) => {
     });
 })
 
-app.get('/api/cats', (req, res) => {
+app.get('/', (req, res) => {
     request(options, function (error, response, body) {
         if (error)
             throw new Error(error);
