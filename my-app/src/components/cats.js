@@ -16,7 +16,7 @@ class Cats extends Component {
         this.handleScroll = this.handleScroll.bind(this);
     }
     async LoadCat_pics() {
-        const promise = await axios.get("http://localhost:5000/api/cats");
+        const promise = await axios.get("/api/cats");
         const status = promise.status;
         if (status === 200) {
             this.setState({ cats: promise.data });
@@ -26,7 +26,7 @@ class Cats extends Component {
         }
     }
     async LoadCat_pics2() {
-        const promise = await axios.get("http://localhost:5000/api/cats");
+        const promise = await axios.get("/api/cats");
         const status = promise.status;
         if (status === 200) {
             promise.data.forEach(element => {
