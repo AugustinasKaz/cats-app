@@ -1,14 +1,24 @@
 {
-  "name": "rando",
+  "name": "cats-app",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
-  "license": "MIT",
-  "dependencies": {
-    "express": "^4.15.3",
-    "password-generator": "^2.1.0"
-  },
   "scripts": {
-    "start": "node index.js",
-    "heroku-postbuild": "cd client && yarn && yarn run build"
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AugustinasKaz/cats-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AugustinasKaz/cats-app/issues"
+  },
+  "homepage": "https://github.com/AugustinasKaz/cats-app#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "password-generator": "^2.2.3"
   }
 }
