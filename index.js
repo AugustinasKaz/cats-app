@@ -6,7 +6,7 @@ const port = process.env.PORT || 5000;
 var bodyParser = require("body-parser");
 const { Client } = require('pg');
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'my-app/build')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -67,7 +67,7 @@ app.post('/api/post_comment',function(req,res){
 });
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/client/build/index.html'));
+    res.sendFile(path.join(__dirname + '/my-app/build/index.html'));
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
