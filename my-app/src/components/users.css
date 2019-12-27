@@ -1,0 +1,94 @@
+
+.box1 {
+    color: white;
+    height: 100vh;
+    width: 29vw;
+    float: right;
+    background-color: black;
+    text-align: center;
+}
+
+.comments{
+    align-items: center;
+    overflow: scroll;
+    overflow-x: hidden;
+    border: 10px solid black;
+    background-color: black;
+    height: 65vh;
+}
+.comment_container {
+    word-wrap: break-word;
+    text-align: left;
+    color: black;
+    background-color: #f1f1f1;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 2px solid #dedede;
+    width: 27vw;
+    
+}
+form{
+    height:40vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    
+}
+
+.input_good {
+    border: 2px solid white; 
+    -webkit-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    -moz-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    padding: 5px;
+    background: rgba(255,255,255,0.5);
+    margin: 0 0 5px 0;
+}
+.input_bad {
+    border: 2px solid red; 
+    -webkit-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    -moz-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    padding: 5px;
+    background: rgba(255,255,255,0.5);
+    margin: 0 0 5px 0;
+}
+
+@media screen and (max-width: 600px) {
+    .comments{
+        align-items: center;
+        overflow: scroll;
+        overflow-x: hidden;
+        border: 10px solid black;
+        background-color: black;
+        height: 40vh;
+    }
+    form{
+        height:30vh;
+        overflow: scroll;
+        overflow-x: hidden;
+        
+    }
+    .comment_container {
+        word-wrap: break-word;
+        text-align: left;
+        color: black;
+        background-color: #f1f1f1;
+        margin: 5px 0;
+        border-radius: 5px;
+        border: 2px solid #dedede;
+        width: 100%;
+        
+    }
+  }
