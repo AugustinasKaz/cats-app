@@ -11,6 +11,7 @@
   "dependencies": {
     "create-react-app": "^3.3.0",
     "express": "^4.17.1",
+    "path": "^0.12.7",
     "pg": "^7.15.1",
     "request": "^2.88.0"
   }
