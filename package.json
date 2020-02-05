@@ -5,16 +5,23 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "server": "nodemon index.js",
+    "my-app": "npm start --prefix my-app",
+    "dev": "concurrently \"npm run server\" \"npm run my-app\"",
     "heroku-postbuild": "cd my-app && npm install && npm run build"
   },
   "author": "Augustinas",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "concurrently": "^5.0.2",
+    "cors": "^2.8.5",
     "create-react-app": "^3.3.0",
     "express": "^4.17.1",
     "path": "^0.12.7",
-    "pg": "^7.16.0",
-    "request": "^2.88.0"
+    "pg": "^7.15.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }

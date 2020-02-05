@@ -19,7 +19,7 @@ class Users extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     async LoadUsers() {
-        const promise = await axios.get("/api/users");
+        const promise = await axios.get("http://localhost:5000/api/users");
         const status = promise.status;
         if (status === 200) {
 
@@ -55,7 +55,7 @@ class Users extends Component {
         if (this.state.comment !== " " && this.state.name !== " ") {
             this.setState({ comment: " " });
             this.setState({ name: " " });
-            const promise = await axios.post("api/post_comment", { user: this.state.name, comment: this.state.comment });
+            const promise = await axios.post("http://127.0.0.1:5000/api/post_comment", { user: this.state.name, comment: this.state.comment });
             const status = promise.status;
             if (status === 200) {
                 this.LoadUsers();
