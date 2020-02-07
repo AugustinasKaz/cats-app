@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'my-app/build')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get('/api/users', (req, res) => {
+app.get('/api/getComments', (req, res) => {
     const client = new Client({
         connectionString: DATABASE_URL,
         ssl: true,
@@ -66,8 +66,12 @@ app.post('/api/post_comment',function(req,res){
     client.connect();
     var username=req.body.user;
     var comment=req.body.comment;
-    client.query("INSERT INTO users(name, comment) VALUES('"+username+"','"+comment+"');");
-    res.end("success");
+    client.query("INSERT INTO users(name, comment) VALUES('"+username+"','"+comment+"');", (err, response) => {
+        if (err)
+            res.json(err);
+        else 
+            res.json(response.rows[0]);
+    })
 });
 
 app.get('*', (req, res) => {
