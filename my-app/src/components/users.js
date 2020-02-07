@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import './users.css'
+import './static/users.css'
+import Form from './form'
 
 class Users extends Component {
     constructor() {
@@ -14,9 +15,6 @@ class Users extends Component {
 
         };
         this.LoadUsers = this.LoadUsers.bind(this);
-        this.handleChange_name = this.handleChange_name.bind(this);
-        this.handleChange_comment = this.handleChange_comment.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
     async LoadUsers() {
         const promise = await axios.get("http://localhost:5000/api/users");
@@ -33,7 +31,7 @@ class Users extends Component {
         this.LoadUsers();
     }
 
-    handleChange_name(event) {
+    /*handleChange_name(event) {
         this.setState({ name: event.target.value });
     }
     handleChange_comment(event) {
@@ -62,38 +60,27 @@ class Users extends Component {
             }
         }
 
-    }
+    }*/
 
     render() {
         return (
             <div className="box1">
+                <div className="header">
                 <h2>Visitors comments</h2>
-                <div className="comments">
+                </div>
+                <div className="comments_div">
                     {this.state.users.map(user =>
                         <div className="comment_container" key={user.id}>
                             <p>{user.name}</p>
                             <p>{user.comment}</p>
                         </div>)}
-
                 </div>
-                <form onSubmit={this.handleSubmit}>
-                    <h2>Leave a comment</h2>
-                    <label>
-                        Name:
-                        <br />
-                        <input type="text" value={this.state.name} onChange={this.handleChange_name}
-                            className={this.state.name_not_empty ? "input_good" : "input_bad"} />
-                    </label>
-                    <br />
-                    <label>
-                        Comment:
-                        <br />
-                        <input type="text" value={this.state.comment} onChange={this.handleChange_comment}
-                            className={this.state.comment_not_empty ? "input_good" : "input_bad"} />
-                    </label>
-                    <br />
-                    <input type="submit" value="Submit" />
-                </form>
+                <div className="header">
+                <h2>Leave a comment</h2>
+                </div>
+                <div className="comments_form">
+                <Form/>
+                </div>
             </div >
         );
     }

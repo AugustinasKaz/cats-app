@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import './cats.css'
+import './static/cats.css'
 
 class Cats extends Component {
     constructor() {
