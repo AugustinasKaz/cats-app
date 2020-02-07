@@ -65,9 +65,14 @@ export default function BasicTextFields() {
         color: ThemeColor,
       },
       width: 200,
+      
     },
     div1: {
       display: 'flex',
+    },
+    button: {
+      backgroundColor: ThemeColor,
+      height:55,
     }
   }));
   const classes = useStyles();
@@ -97,8 +102,9 @@ export default function BasicTextFields() {
       setE2(E2 = false)
       setE2_text(E2_text = " ")
     }
-    PostComment(username, comm);
-
+    await PostComment(username, comm);
+    setComm(comm = " ");
+    setName(username = " ");
   }
 
   return (
@@ -108,7 +114,7 @@ export default function BasicTextFields() {
       <div className={classes.div1}>
         <TextField error={E2} InputProps={{ className: classes.lineColor }} value={comm} onChange={updateComm} helperText={E2_text}
           className={classes.input2} label="Comment" variant="outlined" />
-        <Button onClick={validate} variant="contained">Submit</Button>
+        <Button onClick={validate}  className={classes.button} variant="contained">Submit</Button>
       </div>
     </form>
   );

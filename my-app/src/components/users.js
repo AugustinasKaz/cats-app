@@ -22,7 +22,6 @@ class Users extends Component {
 
     render() {
         if (this.state.loading === true) {
-            //console.log(this.state.loading, this.state.users)
             return (
             <div className="box1">
                 <div className="header">
@@ -41,7 +40,6 @@ class Users extends Component {
             )
         }
         else {
-            //console.log(this.state.loading, this.state.users)
             return (
                 <div className="box1">
                     <div className="header">
