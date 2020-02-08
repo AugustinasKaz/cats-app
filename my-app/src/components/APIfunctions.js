@@ -23,3 +23,15 @@ export async function GetComments() {
         return "connection failed";
     }
 }
+
+export async function GetCatsPictures() {
+    const promise = await axios.get("/api/getCatsPics");
+    const status = promise.status
+    if(status === 200){
+        let res = promise.data;
+        return res;
+    }
+    else{
+        return "connection failed";
+    }
+}

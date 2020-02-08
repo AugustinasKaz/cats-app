@@ -1,7 +1,7 @@
 const express = require('express');
 const request = require('request');
 const path = require('path');
-//var cors = require('cors');
+var cors = require('cors');
 var bodyParser = require("body-parser");
 const port = process.env.PORT || 5000;
 const { Client } = require('pg');
@@ -14,7 +14,7 @@ var options = {
     headers: { 'x-api-key': '6b20cc7c-275a-4071-b1dc-e12315b7da18' }
 };
 
-//app.use(cors());
+app.use(cors());
 app.use(express.static(path.join(__dirname, 'my-app/build')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -39,7 +39,7 @@ app.get('/api/getComments', (req, res) => {
     });
 })
 
-app.get('/api/cats', (req, res) => {
+app.get('/api/getCatsPics', (req, res) => {
     request(options, function (error, response, body) {
         if (error)
             throw new Error(error);
