@@ -7,7 +7,6 @@ const port = process.env.PORT || 5000;
 const { Client } = require('pg');
 const app = express();
 
-const DATABASE_URL = 'postgres://yamrchswqjoioq:208b0683ad99399eb224663ed3235d1152cfeb501cad220c54933fbb889ef381@ec2-184-72-236-57.compute-1.amazonaws.com:5432/db6cllld6q1vh0';
 var options = {
     method: 'GET',
     url: 'https://api.thecatapi.com/v1/images/search?limit=21',

@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import { PostComment } from './APIfunctions.js'
 
 
-export default function BasicTextFields() {
+export default function BasicTextFields(props) {
   let [username, setName] = useState(" ");
   let [comm, setComm] = useState(" ");
   let [ThemeColor, setColor] = useState("white");
@@ -65,14 +65,14 @@ export default function BasicTextFields() {
         color: ThemeColor,
       },
       width: 200,
-      
+
     },
     div1: {
       display: 'flex',
     },
     button: {
       backgroundColor: ThemeColor,
-      height:55,
+      height: 55,
     }
   }));
   const classes = useStyles();
@@ -86,7 +86,7 @@ export default function BasicTextFields() {
   }
 
   async function validate() {
-    if(username.length < 4) {
+    if (username.length < 4) {
       setE1(E1 = true)
       setE1_text(E1_text = "username is to short")
     }
@@ -94,11 +94,11 @@ export default function BasicTextFields() {
       setE1(E1 = false)
       setE1_text(E1_text = " ")
     }
-    if(comm.length < 2) {
+    if (comm.length < 2) {
       setE2(E2 = true)
       setE2_text(E2_text = "Comment can't be empty")
     }
-    else{
+    else {
       setE2(E2 = false)
       setE2_text(E2_text = " ")
     }
@@ -107,16 +107,48 @@ export default function BasicTextFields() {
     setName(username = " ");
   }
 
-  return (
-    <form className={classes.root}>
-      <TextField error={E1} InputProps={{ className: classes.lineColor }} value={username} onChange={updateName} helperText={E1_text}
-        className={classes.input1} label="Name" variant="outlined" />
-      <div className={classes.div1}>
-        <TextField error={E2} InputProps={{ className: classes.lineColor }} value={comm} onChange={updateComm} helperText={E2_text}
-          className={classes.input2} label="Comment" variant="outlined" />
-        <Button onClick={validate}  className={classes.button} variant="contained">Submit</Button>
+  if(props.userComs === undefined){
+    return (
+      <div>
+        
+        <div className="header">
+          <h2>Leave a comment</h2>
+        </div>
+        <form className={classes.root}>
+          <TextField error={E1} InputProps={{ className: classes.lineColor }} value={username} onChange={updateName} helperText={E1_text}
+            className={classes.input1} label="Name" variant="outlined" />
+          <div className={classes.div1}>
+            <TextField error={E2} InputProps={{ className: classes.lineColor }} value={comm} onChange={updateComm} helperText={E2_text}
+              className={classes.input2} label="Comment" variant="outlined" />
+            <Button onClick={validate} className={classes.button} variant="contained">Submit</Button>
+          </div>
+        </form>
       </div>
-    </form>
+    );
+  }
+  else{
+  return (
+    <div>
+      <div className="comments_div">
+        {props.userComs.map(user =>
+          <div className="comment_container" key={user.id}>
+            <p>{user.name}</p>
+            <p>{user.comment}</p>
+          </div>)}
+      </div>
+      <div className="header">
+        <h2>Leave a comment</h2>
+      </div>
+      <form className={classes.root}>
+        <TextField error={E1} InputProps={{ className: classes.lineColor }} value={username} onChange={updateName} helperText={E1_text}
+          className={classes.input1} label="Name" variant="outlined" />
+        <div className={classes.div1}>
+          <TextField error={E2} InputProps={{ className: classes.lineColor }} value={comm} onChange={updateComm} helperText={E2_text}
+            className={classes.input2} label="Comment" variant="outlined" />
+          <Button onClick={validate} className={classes.button} variant="contained">Submit</Button>
+        </div>
+      </form>
+    </div>
   );
 }
-
+}

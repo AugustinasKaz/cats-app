@@ -45,18 +45,8 @@ class Users extends Component {
                     <div className="header">
                         <h2>Visitors comments</h2>
                     </div>
-                    <div className="comments_div">
-                        {this.state.users.map(user =>
-                            <div className="comment_container" key={user.id}>
-                                <p>{user.name}</p>
-                                <p>{user.comment}</p>
-                            </div>)}
-                    </div>
-                    <div className="header">
-                        <h2>Leave a comment</h2>
-                    </div>
                     <div className="comments_form">
-                        <Form />
+                        <Form userComs={this.state.users}/>
                     </div>
                 </div >
             );
