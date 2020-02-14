@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, {useState, useContext} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { PostComment } from './APIfunctions.js'
+import {CommentsContext} from './context'
 
 
-export default function BasicTextFields(props) {
+export default function Comment_form() {
   let [username, setName] = useState(" ");
   let [comm, setComm] = useState(" ");
   let [ThemeColor, setColor] = useState("white");
@@ -14,6 +15,8 @@ export default function BasicTextFields(props) {
   let [E1, setE1] = useState(false);
   let [E2_text, setE2_text] = useState(" ");
   let [E2, setE2] = useState(false);
+
+
 
   const useStyles = makeStyles(theme => ({
     lineColor: {
@@ -85,6 +88,7 @@ export default function BasicTextFields(props) {
     setComm(comm = e.target.value);
   }
 
+  const contextData = useContext(CommentsContext);
   async function validate() {
     if (username.length < 4) {
       setE1(E1 = true)
@@ -105,15 +109,10 @@ export default function BasicTextFields(props) {
     await PostComment(username, comm);
     setComm(comm = " ");
     setName(username = " ");
+    contextData.setComments();
   }
 
-  if(props.userComs === undefined){
     return (
-      <div>
-        
-        <div className="header">
-          <h2>Leave a comment</h2>
-        </div>
         <form className={classes.root}>
           <TextField error={E1} InputProps={{ className: classes.lineColor }} value={username} onChange={updateName} helperText={E1_text}
             className={classes.input1} label="Name" variant="outlined" />
@@ -123,32 +122,5 @@ export default function BasicTextFields(props) {
             <Button onClick={validate} className={classes.button} variant="contained">Submit</Button>
           </div>
         </form>
-      </div>
     );
   }
-  else{
-  return (
-    <div>
-      <div className="comments_div">
-        {props.userComs.map(user =>
-          <div className="comment_container" key={user.id}>
-            <p>{user.name}</p>
-            <p>{user.comment}</p>
-          </div>)}
-      </div>
-      <div className="header">
-        <h2>Leave a comment</h2>
-      </div>
-      <form className={classes.root}>
-        <TextField error={E1} InputProps={{ className: classes.lineColor }} value={username} onChange={updateName} helperText={E1_text}
-          className={classes.input1} label="Name" variant="outlined" />
-        <div className={classes.div1}>
-          <TextField error={E2} InputProps={{ className: classes.lineColor }} value={comm} onChange={updateComm} helperText={E2_text}
-            className={classes.input2} label="Comment" variant="outlined" />
-          <Button onClick={validate} className={classes.button} variant="contained">Submit</Button>
-        </div>
-      </form>
-    </div>
-  );
-}
-}
