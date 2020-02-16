@@ -1,0 +1,51 @@
+$theme-light-text: black;
+$theme-light-background: #e6e6e6;
+
+@mixin div_size-light{
+    width:90%;
+    overflow: scroll;
+    overflow-x: hidden;
+    border: 10px solid $theme-light-background;
+}
+.comments_div-light{
+    @include div_size-light();
+    align-items: center;
+    padding:20px;
+    height: 55vh;
+}
+.box1-light{
+    overflow: scroll;
+    color: $theme-light-text;
+    background-color: $theme-light-background;
+    height: 100vh;
+    width: 28%;
+    float: left;
+    text-align: center;
+    padding:15px;
+}
+.comment_container-light{
+    word-wrap: break-word;
+    text-align: left;
+    color: $theme-light-text;
+    padding-left: 5px;
+    border-radius: 5px;
+    border: 2px solid $theme-light-text;
+    width: 100%;
+    margin-top: 10px;
+}
+.comments_form-light{
+    @include div_size-light();
+    display: flex;
+    align-content: flex-start;
+    height:20vh;
+    overflow: scroll;
+}
+.box2-light{
+    height: 100vh;
+    width: 68%;
+    float: left;
+    background-color: $theme-light-background;
+    padding: 1vw;
+    overflow: scroll;
+    overflow-x: hidden;
+}

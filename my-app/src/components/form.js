@@ -78,7 +78,7 @@ export default function Comment_form() {
       display: 'flex',
     },
     button: {
-      backgroundColor: 'rgba(163, 163, 194, 0.8)',
+      backgroundColor: 'grey',
       height: 55,
     }
   }));

@@ -1,8 +1,3 @@
-.header {
-  height: 2vh;
-  margin: 15px;
-}
-
 .comments_div-dark {
   width: 90%;
   overflow: scroll;
@@ -97,6 +92,11 @@
       align-content: flex-start;
   height: 20vh;
   overflow: scroll;
+}
+
+.header {
+  height: 2vh;
+  margin: 15px;
 }
 
 @media screen and (max-width: 600px) {

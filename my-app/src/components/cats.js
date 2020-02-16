@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './static/cats.css'
 import { GetCatsPictures } from './APIfunctions'
+import { ThemeContext } from './context'
 
 class Cats extends Component {
+    static contextType = ThemeContext
     constructor() {
         super();
         this.state = {
@@ -41,9 +43,10 @@ class Cats extends Component {
 
     }
     render() {
+        const theme = this.context.theme
         if (this.state.loading === true) {
             return (
-                <div className="box2" onScroll={this.handleScroll}>
+                <div className={"box2-"+theme} onScroll={this.handleScroll}>
                     <div className="container">
                         <h1>Loading</h1>
                     </div>
@@ -53,7 +56,7 @@ class Cats extends Component {
         else {
             let modal_view = this.state.picture ? "show_mod" : "hide_mod";
             return (
-                <div className="box2" onScroll={this.handleScroll}>
+                <div className={"box2-"+theme} onScroll={this.handleScroll}>
                     <div className="container">
                         {this.state.cats.map((cat, index) =>
                             <div className="small_pic">

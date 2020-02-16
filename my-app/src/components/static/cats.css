@@ -1,8 +1,114 @@
-.box2 {
+.comments_div-dark {
+  width: 90%;
+  overflow: scroll;
+  overflow-x: hidden;
+  border: 10px solid #262626;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+  height: 55vh;
+}
+
+.box1-dark {
+  overflow: scroll;
+  color: white;
+  background-color: #262626;
+  height: 100vh;
+  width: 28%;
+  float: left;
+  text-align: center;
+  padding: 15px;
+}
+
+.comment_container-dark {
+  word-wrap: break-word;
+  text-align: left;
+  color: white;
+  padding-left: 5px;
+  border-radius: 5px;
+  border: 2px solid white;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.comments_form-dark {
+  width: 90%;
+  overflow: scroll;
+  overflow-x: hidden;
+  border: 10px solid #262626;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  height: 20vh;
+  overflow: scroll;
+}
+
+.box2-dark {
   height: 100vh;
   width: 68%;
   float: left;
   background-color: #262626;
+  padding: 1vw;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.comments_div-light {
+  width: 90%;
+  overflow: scroll;
+  overflow-x: hidden;
+  border: 10px solid #e6e6e6;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+  height: 55vh;
+}
+
+.box1-light {
+  overflow: scroll;
+  color: black;
+  background-color: #e6e6e6;
+  height: 100vh;
+  width: 28%;
+  float: left;
+  text-align: center;
+  padding: 15px;
+}
+
+.comment_container-light {
+  word-wrap: break-word;
+  text-align: left;
+  color: black;
+  padding-left: 5px;
+  border-radius: 5px;
+  border: 2px solid black;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.comments_form-light {
+  width: 90%;
+  overflow: scroll;
+  overflow-x: hidden;
+  border: 10px solid #e6e6e6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  height: 20vh;
+  overflow: scroll;
+}
+
+.box2-light {
+  height: 100vh;
+  width: 68%;
+  float: left;
+  background-color: #e6e6e6;
   padding: 1vw;
   overflow: scroll;
   overflow-x: hidden;
@@ -74,8 +180,6 @@ img:hover {
   /* Full height */
   overflow: auto;
   /* Enable scroll if needed */
-  background-color: black;
-  /* Fallback color */
   background-color: rgba(0, 0, 0, 0.9);
   /* Black w/ opacity */
 }
@@ -97,8 +201,6 @@ img:hover {
   /* Full height */
   overflow: auto;
   /* Enable scroll if needed */
-  background-color: black;
-  /* Fallback color */
   background-color: rgba(0, 0, 0, 0.9);
   /* Black w/ opacity */
 }
