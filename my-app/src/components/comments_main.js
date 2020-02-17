@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './static/comments.css'
-import Form from './form'
+import Form from './comments_form'
 import Comments_div from './comments_div'
 import { GetComments } from './APIfunctions'
 import { CommentsContext, ThemeContext } from './context'

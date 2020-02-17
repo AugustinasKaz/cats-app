@@ -30,6 +30,7 @@
   border: 2px solid white;
   width: 100%;
   margin-top: 10px;
+  background-color: 0;
 }
 
 .comments_form-dark {
@@ -44,6 +45,16 @@
       align-content: flex-start;
   height: 20vh;
   overflow: scroll;
+}
+
+.box2-dark {
+  height: 100vh;
+  width: 68%;
+  float: left;
+  background-color: #262626;
+  padding: 1vw;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .comments_div-light {
@@ -92,6 +103,16 @@
       align-content: flex-start;
   height: 20vh;
   overflow: scroll;
+}
+
+.box2-light {
+  height: 100vh;
+  width: 68%;
+  float: left;
+  background-color: #e6e6e6;
+  padding: 1vw;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .header {
