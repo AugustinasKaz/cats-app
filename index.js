@@ -13,7 +13,7 @@ var options = {
     headers: { 'x-api-key': '6b20cc7c-275a-4071-b1dc-e12315b7da18' }
 };
 
-const DATABASE_URL = 'postgres://yamrchswqjoioq:208b0683ad99399eb224663ed3235d1152cfeb501cad220c54933fbb889ef381@ec2-184-72-236-57.compute-1.amazonaws.com:5432/db6cllld6q1vh0'
+const DATABASE_URL = ''
 
 
 app.use(cors());
